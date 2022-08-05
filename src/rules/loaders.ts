@@ -1,4 +1,4 @@
-import csv from 'csv-parse/lib/sync';
+import csv from 'csv-parse/sync';
 import path from 'path';
 import {FileSystem, YAML} from '..';
 
@@ -195,7 +195,7 @@ export function loadCsvRulesString(
   text: string,
   options: LoaderOptions = {}
 ): Rule[] {
-  const rules = csv(text, {
+  const rules = csv.parse(text, {
     columns: true,
     relax_column_count_less: true,
     skipEmptyLines: true,
